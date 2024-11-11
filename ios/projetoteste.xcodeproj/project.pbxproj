@@ -14,6 +14,12 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-projetoteste-projetotesteTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-projetoteste-projetotesteTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		F50A99E06E6D433FB1A6FA6C /* AveriaLibre-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61833D81401F44F1BDF059F6 /* AveriaLibre-Bold.ttf */; };
+		A46E4099CD774F33A12AF13A /* AveriaLibre-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7064561E522649158FEDC03D /* AveriaLibre-BoldItalic.ttf */; };
+		DA50D760AC554D52881DA3C9 /* AveriaLibre-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68B4994BB26046D884EDC405 /* AveriaLibre-Italic.ttf */; };
+		F33989F8B88943478FDE912B /* AveriaLibre-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5FAAC784B7094E869AC6D56A /* AveriaLibre-Light.ttf */; };
+		93C3794167A648358F238648 /* AveriaLibre-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97DD1016CDF749428566DAE0 /* AveriaLibre-LightItalic.ttf */; };
+		640D243F49D24CE8ADB8944A /* AveriaLibre-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10512A77FADE42639B10E97E /* AveriaLibre-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +51,12 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = projetoteste/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-projetoteste-projetotesteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projetoteste-projetotesteTests.release.xcconfig"; path = "Target Support Files/Pods-projetoteste-projetotesteTests/Pods-projetoteste-projetotesteTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		61833D81401F44F1BDF059F6 /* AveriaLibre-Bold.ttf */ = {isa = PBXFileReference; name = "AveriaLibre-Bold.ttf"; path = "../assets/fonts/AveriaLibre-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7064561E522649158FEDC03D /* AveriaLibre-BoldItalic.ttf */ = {isa = PBXFileReference; name = "AveriaLibre-BoldItalic.ttf"; path = "../assets/fonts/AveriaLibre-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		68B4994BB26046D884EDC405 /* AveriaLibre-Italic.ttf */ = {isa = PBXFileReference; name = "AveriaLibre-Italic.ttf"; path = "../assets/fonts/AveriaLibre-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5FAAC784B7094E869AC6D56A /* AveriaLibre-Light.ttf */ = {isa = PBXFileReference; name = "AveriaLibre-Light.ttf"; path = "../assets/fonts/AveriaLibre-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		97DD1016CDF749428566DAE0 /* AveriaLibre-LightItalic.ttf */ = {isa = PBXFileReference; name = "AveriaLibre-LightItalic.ttf"; path = "../assets/fonts/AveriaLibre-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		10512A77FADE42639B10E97E /* AveriaLibre-Regular.ttf */ = {isa = PBXFileReference; name = "AveriaLibre-Regular.ttf"; path = "../assets/fonts/AveriaLibre-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +136,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				15FEB46A5BBD452B91EF8E7E /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -149,6 +162,20 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		15FEB46A5BBD452B91EF8E7E /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				61833D81401F44F1BDF059F6 /* AveriaLibre-Bold.ttf */,
+				7064561E522649158FEDC03D /* AveriaLibre-BoldItalic.ttf */,
+				68B4994BB26046D884EDC405 /* AveriaLibre-Italic.ttf */,
+				5FAAC784B7094E869AC6D56A /* AveriaLibre-Light.ttf */,
+				97DD1016CDF749428566DAE0 /* AveriaLibre-LightItalic.ttf */,
+				10512A77FADE42639B10E97E /* AveriaLibre-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -245,6 +272,12 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				F50A99E06E6D433FB1A6FA6C /* AveriaLibre-Bold.ttf in Resources */,
+				A46E4099CD774F33A12AF13A /* AveriaLibre-BoldItalic.ttf in Resources */,
+				DA50D760AC554D52881DA3C9 /* AveriaLibre-Italic.ttf in Resources */,
+				F33989F8B88943478FDE912B /* AveriaLibre-Light.ttf in Resources */,
+				93C3794167A648358F238648 /* AveriaLibre-LightItalic.ttf in Resources */,
+				640D243F49D24CE8ADB8944A /* AveriaLibre-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

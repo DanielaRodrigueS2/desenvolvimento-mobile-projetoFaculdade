@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { View, Text, TextInput, Pressable, TouchableOpacity, StyleSheet} from "react-native";
+import Icon from 'react-native-vector-icons/MaterialIcons'
 
 const App = () => {
     
@@ -19,26 +20,27 @@ const App = () => {
 
             <View id="Satisfyng.you" style={estilo.Satisfyng}>
                 <Text style={estilo.TextoSatis}>Satisfyng.you</Text>
+                <Icon name='sentiment-satisfied-alt' size = {50} color="white"/>
 
             </View>
 
             <View id="Main" style={estilo.Main}>
 
-                <View id="Login">
+                <View id="Login" style={estilo.Login}>
                     <View id="Email">
-                        <Text>E-mail</Text>
+                        <Text style={estilo.textoNormal}>E-mail</Text>
                         <TextInput value={email} onChangeText={setEmail} style={estilo.caixaTexto}/>
                     </View>
 
                     <View id="Senha">
-                        <Text>Senha</Text>
+                        <Text style={estilo.textoNormal}>Senha</Text>
                         <TextInput value={senha} onChangeText={setSenha} style={estilo.caixaTexto}/>
-                        <Text>E-mail e/ou senha inválidos.</Text>
+                        <Text style={estilo.TextoInvalido}>E-mail e/ou senha inválidos.</Text>
                     </View>
 
                     <View id="Entrar">
                         <TouchableOpacity onPress={fazerLogin} style={estilo.botaoEntrar}>
-                            <Text>Entrar</Text>
+                            <Text style={estilo.textoNormal}>Entrar</Text>
                         </TouchableOpacity>
                     </View>
 
@@ -46,11 +48,11 @@ const App = () => {
 
                 <View id="Botoes Extras" style={estilo.Botoes}>
                     <TouchableOpacity onPress={criarConta} style={estilo.botaoCriar}>
-                        <Text>Criar minha conta</Text>
+                        <Text style={estilo.textoNormal}>Criar minha conta</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={estilo.botaoEsqueci}>
-                        <Text>Esqueci minha senha</Text>
+                        <Text style={estilo.textoNormal}>Esqueci minha senha</Text>
                     </TouchableOpacity>
 
                 </View>
@@ -63,50 +65,85 @@ const App = () => {
 const estilo = StyleSheet.create({
     Principal:{
         backgroundColor: '#372775',
-        flex: 1
+        flex: 1,
     },
 
     Satisfyng:{
         alignItems: 'center',
-        flex: 0.25,
-        marginTop: 40
+        flex: 0.15,
+        marginTop: 1,
+        flexDirection: 'row',
+        justifyContent: 'center',
     },
 
     Main:{
-        flex: 0.5
+        flex: 0.85,
+        justifyContent: 'space-between',
+        alignItems: 'center', 
+
+
+    },
+
+    Login:{
+        flex: 0.6,
+    
+        justifyContent: 'space-evenly',
+        width:'80%'
     },
 
     Botoes:{
-        flex: 0.25
+        flex: 0.2,
+        width:'80%',
+        height: 40,
     },
 
     textoNormal:{
-        color: '#FFFFFF'
+        color: '#FFFFFF',
+        fontFamily:'AveriaLibre-Regular',
+        fontSize: 20
 
     },
 
     TextoSatis:{
-        fontSize: 32
+        fontSize: 32,
+        fontFamily:'AveriaLibre-Regular',
+        color: '#FFFFFF',
+        marginRight: 20
+    },
+
+    TextoInvalido:{
+        color: '#FD7979',
+        ontFamily:'AveriaLibre-Regular',
     },
 
     caixaTexto:{
-        backgroundColor: '#FFFFFF'
+        backgroundColor: '#FFFFFF',
+        fontFamily:'AveriaLibre-Regular',
+        color: '#3F92C5'
+        
     },
 
     botaoEntrar:{
         backgroundColor:'#37BD6D',
-        alignItems: 'center'
+        alignItems: 'center',
+        width: '100%',
+        height: 60,
+        justifyContent:'center'
     },
 
     botaoCriar:{
         backgroundColor:'#419ED7',
         alignItems: 'center',
-        marginVertical: 5
+        marginVertical: 5,
+        height: 40,
+        justifyContent:'center'
     },
 
     botaoEsqueci:{
         backgroundColor:'#B0CCDE',
-        alignItems: 'center'
+        alignItems: 'center',
+        height: 40,
+        justifyContent:'center'
     }
 
 })
