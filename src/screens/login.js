@@ -2,7 +2,7 @@ import { useState } from "react";
 import { View, Text, TextInput, Pressable, TouchableOpacity, StyleSheet} from "react-native";
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
-const App = () => {
+const TelaLogin = () => {
     
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
@@ -150,4 +150,4 @@ const estilo = StyleSheet.create({
 
 })
 
-export default App
+export default TelaLogin
