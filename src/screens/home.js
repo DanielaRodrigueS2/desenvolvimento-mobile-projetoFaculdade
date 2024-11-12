@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { View, Text, TextInput, ScrollView, TouchableOpacity, StyleSheet,} from "react-native";
 import Icon from 'react-native-vector-icons/MaterialIcons'
+import Pesquisa from "../components/Pesquisa";
 
 const home = () =>{
 
@@ -24,7 +25,9 @@ const home = () =>{
                 </View>
 
                 <ScrollView id="Pesquisas" style={estilo.Pesquisas}  contentContainerStyle={estilo.scrollContent} horizontal={true}>
-
+                    <Pesquisa nome="Sapo" data="20/10/2024" img="https://reactnative.dev/img/tiny_logo.png"></Pesquisa>
+                    <Pesquisa nome="Sapo" data="20/10/2024" img="https://reactnative.dev/img/tiny_logo.png"></Pesquisa>
+                    <Pesquisa nome="Sapo" data="20/10/2024" img="https://reactnative.dev/img/tiny_logo.png"></Pesquisa>
                 </ScrollView>
 
                 <View id="NovaPesquisa" style={estilo.NovaPesquisa}>
@@ -68,9 +71,8 @@ const estilo = StyleSheet.create({
 
     Pesquisas:{
         flex: 0.6,
-        width: '80%'
-
-
+        width: '80%',
+        height: '100%'
     },
 
     NovaPesquisa:{

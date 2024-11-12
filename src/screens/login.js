@@ -80,8 +80,6 @@ const estilo = StyleSheet.create({
         flex: 0.85,
         justifyContent: 'space-between',
         alignItems: 'center', 
-
-
     },
 
     Login:{
