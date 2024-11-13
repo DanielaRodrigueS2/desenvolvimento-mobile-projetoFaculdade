@@ -6,7 +6,8 @@ const Pesquisa = (props) =>{
     const nome_pesquisa = props.nome
     const data_pesquisa = props.data
     return(
-        <TouchableOpacity style={estilo.pesquisa}>
+
+        <TouchableOpacity style={estilo.pesquisa} onPress={props.onPress}>
             <Image source={{uri : img}}></Image>
             <Text style={estilo.textoNome}>{nome_pesquisa}</Text>
             <Text style={estilo.textoData}>{data_pesquisa}</Text>

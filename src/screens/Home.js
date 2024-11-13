@@ -3,11 +3,24 @@ import { View, Text, TextInput, ScrollView, TouchableOpacity, StyleSheet,} from 
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import Pesquisa from "../components/Pesquisa";
 
-const home = () =>{
+const Home = () =>{
 
     const [busca, setBusca] = useState('Insira o termo de busca...')
 
+    const goToLogin = () =>{
+        props.navigation.navigate('Login')
+    }
+
+    const goToNovaPesquisa = () =>{
+        //Adicionar nova pesquisa
+    }
+
+    const goToAcoesPesquisa = () =>{
+        //Adicionar acoes pesquisa
+    }
+
     return(
+
         <View id="Tela" style={estilo.Principal}>
 
             <View id="Header" style={estilo.Header}>
@@ -25,9 +38,9 @@ const home = () =>{
                 </View>
 
                 <ScrollView id="Pesquisas" style={estilo.Pesquisas}  contentContainerStyle={estilo.scrollContent} horizontal={true}>
-                    <Pesquisa nome="Sapo" data="20/10/2024" img="https://reactnative.dev/img/tiny_logo.png"></Pesquisa>
-                    <Pesquisa nome="Sapo" data="20/10/2024" img="https://reactnative.dev/img/tiny_logo.png"></Pesquisa>
-                    <Pesquisa nome="Sapo" data="20/10/2024" img="https://reactnative.dev/img/tiny_logo.png"></Pesquisa>
+                    <Pesquisa nome="Sapo" data="20/10/2024" img="https://reactnative.dev/img/tiny_logo.png" onPress={goToAcoesPesquisa}></Pesquisa>
+                    <Pesquisa nome="Sapo" data="20/10/2024" img="https://reactnative.dev/img/tiny_logo.png" onPress={goToAcoesPesquisa}></Pesquisa>
+                    <Pesquisa nome="Sapo" data="20/10/2024" img="https://reactnative.dev/img/tiny_logo.png" onPress={goToAcoesPesquisa}></Pesquisa>
                 </ScrollView>
 
                 <View id="NovaPesquisa" style={estilo.NovaPesquisa}>
@@ -123,4 +136,4 @@ const estilo = StyleSheet.create({
 
 })
 
-export default home
+export default Home

@@ -1,30 +1,42 @@
 import { useState } from "react";
-import { View, Text, TextInput, ScrollView, TouchableOpacity, StyleSheet,} from "react-native";
+import { View, Text, TextInput, TouchableOpacity, StyleSheet,} from "react-native";
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
-const recuperacao_senha = () =>{
+const RecuperacaoSenha = (props) =>{
 
     const [email, setEmail] = useState('')
+
+    const goToLogin = () =>{
+        props.navigation.navigate('Login')
+    }
+
+    const goBack = () =>{
+        props.navigation.goBack()
+    }
 
     return(
 
         <View id="Principal" style={estilo.Principal}>
 
             <View id="header" style={estilo.Header}>
-                <TouchableOpacity>
+
+                <TouchableOpacity onPress={goBack}>
                     <Icon style={estilo.menu} name="arrow-back" size = {40} color = "#573FBA" />
                 </TouchableOpacity>
+
                 <Text style={estilo.textoGrande}>Recuperação de senha</Text>
             </View>
 
             <View id="main" style={estilo.Main}>
+
                 <View id="email" style={estilo.email}>
                     <Text style={estilo.textoNormal}>E-mail</Text>
                     <TextInput value={email} onChangeText={setEmail} style={estilo.caixaTexto}/>
                     <Text style={estilo.TextoInvalido}>E-mail parece ser inválido</Text>
                 </View>
-                <TouchableOpacity style={estilo.botaoRecuperar}> 
-                    <Text style={estilo.textoNormal}>Nova Pesquisa</Text>
+
+                <TouchableOpacity style={estilo.botaoRecuperar} onPress={goToLogin}> 
+                    <Text style={estilo.textoNormal}>RECUPERAR</Text>
                 </TouchableOpacity>
 
             </View>
@@ -96,4 +108,4 @@ const estilo = StyleSheet.create({
 
 })
 
-export default recuperacao_senha
+export default RecuperacaoSenha
