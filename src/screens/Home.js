@@ -3,13 +3,10 @@ import { View, Text, TextInput, ScrollView, TouchableOpacity, StyleSheet,} from 
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import Pesquisa from "../components/Pesquisa";
 
-const Home = () =>{
+const Home = (props) =>{
 
     const [busca, setBusca] = useState('Insira o termo de busca...')
 
-    const goToLogin = () =>{
-        props.navigation.navigate('Login')
-    }
 
     const goToNovaPesquisa = () =>{
         //Adicionar nova pesquisa
@@ -23,11 +20,7 @@ const Home = () =>{
 
         <View id="Tela" style={estilo.Principal}>
 
-            <View id="Header" style={estilo.Header}>
-                <TouchableOpacity>
-                    <Icon style={estilo.menu} name="menu" size = {40} color = "white" />
-                </TouchableOpacity>
-            </View>
+            
             
             <View id="Main" style={estilo.Main}>
 

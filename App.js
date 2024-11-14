@@ -4,6 +4,7 @@ import Login from "./src/screens/Login";
 import Home from "./src/screens/Home";
 import RecuperacaoSenha from "./src/screens/RecuperacaoSenha";
 import Register from "./src/screens/Register";
+import Drawer from "./src/screens/Drawer";
 
 const Stack = createStackNavigator()
 
@@ -13,9 +14,9 @@ const App = () =>{
         <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen name='Login' component={Login} options={{headerShown: false}}/>
-                <Stack.Screen name='Home' component={Home} options={{headerShown: false}}/>
                 <Stack.Screen name='RecuperacaoSenha' component={RecuperacaoSenha} options={{headerShown: false}} />
                 <Stack.Screen name='Register' component={Register} options={{headerShown: false}}/>
+                <Stack.Screen name='Drawer' component={Drawer} options={{headerShown: false}}/>
             </Stack.Navigator>
         </NavigationContainer>
     )
