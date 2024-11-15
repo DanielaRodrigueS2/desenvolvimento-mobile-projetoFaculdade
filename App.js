@@ -5,6 +5,8 @@ import Home from "./src/screens/Home";
 import RecuperacaoSenha from "./src/screens/RecuperacaoSenha";
 import Register from "./src/screens/Register";
 import Drawer from "./src/screens/Drawer";
+import NovaPesquisa from "./src/screens/NovaPesquisa";
+import ModificarPesquisa from "./src/screens/ModificarPesquisa";
 
 const Stack = createStackNavigator()
 
@@ -17,6 +19,8 @@ const App = () =>{
                 <Stack.Screen name='RecuperacaoSenha' component={RecuperacaoSenha} options={{headerShown: false}} />
                 <Stack.Screen name='Register' component={Register} options={{headerShown: false}}/>
                 <Stack.Screen name='Drawer' component={Drawer} options={{headerShown: false}}/>
+                <Stack.Screen name='NovaPesquisa' component={NovaPesquisa} options={{headerShown: true}}/>
+                <Stack.Screen name='ModificarPesquisa' component={ModificarPesquisa} options={{headerShown: true}}/>
             </Stack.Navigator>
         </NavigationContainer>
     )

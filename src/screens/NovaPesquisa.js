@@ -54,7 +54,7 @@ const NovaPesquisa = (props) => {
     }
 
     const cadastrar = () => {
-        props.navigation.navigate('Modificar Pesquisa')
+        props.navigation.navigate('ModificarPesquisa')
     }
 
     return (

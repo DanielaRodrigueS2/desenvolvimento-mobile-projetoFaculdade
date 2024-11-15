@@ -9,11 +9,11 @@ const Home = (props) =>{
 
 
     const goToNovaPesquisa = () =>{
-        //Adicionar nova pesquisa
+        props.navigation.navigate('NovaPesquisa')
     }
 
     const goToAcoesPesquisa = () =>{
-        //Adicionar acoes pesquisa
+        
     }
 
     return(
@@ -37,7 +37,7 @@ const Home = (props) =>{
                 </ScrollView>
 
                 <View id="NovaPesquisa" style={estilo.NovaPesquisa}>
-                    <TouchableOpacity style={estilo.BotaoPesquisa}> 
+                    <TouchableOpacity style={estilo.BotaoPesquisa} onPress={goToNovaPesquisa}> 
                         <Text style={estilo.textoNormal}>Nova Pesquisa</Text>
                     </TouchableOpacity>
                 </View>

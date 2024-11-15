@@ -55,7 +55,7 @@ const ModificarPesquisa = (props) => {
     }
 
     const salvar = () => {
-        props.navigation.navigate('Nova Pesquisa')
+        props.navigation.navigate('NovaPesquisa')
     }
 
     const apagar = () => {
