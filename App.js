@@ -7,6 +7,8 @@ import Register from "./src/screens/Register";
 import Drawer from "./src/screens/Drawer";
 import NovaPesquisa from "./src/screens/NovaPesquisa";
 import ModificarPesquisa from "./src/screens/ModificarPesquisa";
+import AcoesPesquisa from "./src/screens/AcoesPesquisa";
+import Coleta from "./src/screens/Coleta";
 
 const Stack = createStackNavigator()
 
@@ -21,6 +23,8 @@ const App = () =>{
                 <Stack.Screen name='Drawer' component={Drawer} options={{headerShown: false}}/>
                 <Stack.Screen name='NovaPesquisa' component={NovaPesquisa} options={{headerShown: true}}/>
                 <Stack.Screen name='ModificarPesquisa' component={ModificarPesquisa} options={{headerShown: true}}/>
+                <Stack.Screen name='AcoesPesquisa' component = {AcoesPesquisa} options={{headerStyle:{backgroundColor: '#2B1D62'},headerTintColor:'#573FBA',headerTitleStyle:{color: '#FFFFFF', fontFamily: 'AveriaLibre-Regular'}}}/>
+                <Stack.Screen name='Coleta' component = {Coleta} options={{headerShown:false}} />
             </Stack.Navigator>
         </NavigationContainer>
     )

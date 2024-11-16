@@ -15,7 +15,8 @@ const Drawer = () =>{
                     backgroundColor:'#2B1F5C'
                 },
                 headerStyle:{
-                    backgroundColor: '#2B1D62'
+                    backgroundColor: '#2B1D62',
+                    height: 50
                 },
                 headerTintColor: 'white',
                 headerTitle: ''

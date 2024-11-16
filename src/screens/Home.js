@@ -13,20 +13,18 @@ const Home = (props) =>{
     }
 
     const goToAcoesPesquisa = () =>{
-        
+        props.navigation.navigate('AcoesPesquisa')
     }
 
     return(
 
-        <View id="Tela" style={estilo.Principal}>
-
-            
+        <View id="Tela" style={estilo.Principal}>   
             
             <View id="Main" style={estilo.Main}>
 
                 <View id="BarraPesquisa" style={estilo.BarraPesquisa}>
 
-                    <TextInput style={estilo.InputBarraPesquisa} value={busca} onChangeText={setBusca}></TextInput>
+                    <TextInput style={estilo.InputBarraPesquisa} value={busca} onChangeText={setBusca} ></TextInput>
                     <Icon  style={estilo.icon} name="search" size = {20} color = "#8B8B8B" />
                 </View>
 
@@ -102,12 +100,14 @@ const estilo = StyleSheet.create({
         fontFamily:'AveriaLibre-Regular',
         color: '#8B8B8B',
         width: '100%',
-        paddingLeft: 30
+        paddingLeft: 30,
+        
     },
 
     icon:{
         position: 'absolute',
-        left: 5
+        left: 5,
+      
     },
 
     textoNormal:{
