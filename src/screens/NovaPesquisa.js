@@ -1,4 +1,4 @@
-import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet, ScrollView } from 'react-native'
 import { useState } from 'react'
 import { Dimensions } from 'react-native'
 import { launchImageLibrary } from 'react-native-image-picker'
@@ -54,61 +54,63 @@ const NovaPesquisa = (props) => {
     }
 
     const cadastrar = () => {
-        props.navigation.navigate('ModificarPesquisa')
+        props.navigation.navigate('Home')
     }
 
     return (
-        <View style={estilos.container}>
-
-            <View style={estilos.componentes}>
-                <Text style={estilos.texto}>Nome</Text>
-                <TextInput style={estilos.textoInput} value={txtNome} onChangeText={setNome} />
-                {!txtNome && (<Text style={estilos.textoWarning}>Preencha no nome da pesquisa</Text>)}
-            </View>
-
-            <View style={estilos.componentes}>
-                <Text style={estilos.texto}>Data</Text>
-                <View style={estilos.containerData}>
-                    <TextInput style={estilos.dataInput} value={txtData} dataDetectorTypes={'calendarEvent'} keyboardType='numeric' onChangeText={formataData} />
-                    <TouchableOpacity onPress={() => setShowDatePicker(true)}>
-                        <Icon name='event' size={40} color={'black'} style={{ opacity: 0.5 }}/>
-                    </TouchableOpacity>
+        <ScrollView contentInsetAdjustmentBehavior="automatic" contentContainerStyle={estilos.backgroundScroll}>
+            <View style={estilos.container}>
+                <View style={estilos.componentes}>
+                    <Text style={estilos.texto}>Nome</Text>
+                    <TextInput style={estilos.textoInput} value={txtNome} onChangeText={setNome} />
+                    {!txtNome && (<Text style={estilos.textoWarning}>Preencha no nome da pesquisa</Text>)}
                 </View>
-                {!txtData && (<Text style={estilos.textoWarning}>Preencha a data</Text>)}
-            </View>
-            {showDatePicker && (
-                <DateTimePicker
-                    value={new Date()}
-                    mode="date"
-                    display={Platform.OS === 'ios' ? 'spinner' : 'default'}
-                    onChange={onDateChange}
-                />
-            )}
 
-            <View style={estilos.componentes}>
-                <Text style={estilos.texto}>Imagem</Text>
-                <TouchableOpacity onPress={selecionaImagem}>
-                <View style={estilos.img}>
-                    {imageUri ?
-                    (<Image source={{uri: imageUri}}/>)
-                    :
-                    (<Text style={estilos.textoImg}>Câmera/Galeria de imagens</Text>)
-                    }
+                <View style={estilos.componentes}>
+                    <Text style={estilos.texto}>Data</Text>
+                    <View style={estilos.containerData}>
+                        <TextInput style={estilos.dataInput} value={txtData} dataDetectorTypes={'calendarEvent'} keyboardType='numeric' onChangeText={formataData} />
+                        <TouchableOpacity onPress={() => setShowDatePicker(true)}>
+                            <Icon name='event' size={40} color={'black'} style={{ opacity: 0.5 }}/>
+                        </TouchableOpacity>
+                    </View>
+                    {!txtData && (<Text style={estilos.textoWarning}>Preencha a data</Text>)}
                 </View>
-                </TouchableOpacity>
-                
-            </View>
+                {showDatePicker && (
+                    <DateTimePicker
+                        value={new Date()}
+                        mode="date"
+                        display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+                        onChange={onDateChange} />
+                )}
 
-            <TouchableOpacity style={estilos.button} onPress={cadastrar}><Text style={estilos.texto}>CADASTRAR</Text></TouchableOpacity>
-        </View>
+                <View style={estilos.componentes}>
+                    <Text style={estilos.texto}>Imagem</Text>
+                    <TouchableOpacity onPress={selecionaImagem}>
+                        <View style={estilos.img}>
+                            {imageUri ?
+                                (<Image source={{uri: imageUri}}/>)
+                            :
+                                (<Text style={estilos.textoImg}>Câmera/Galeria de imagens</Text>)
+                            }
+                        </View>
+                    </TouchableOpacity>   
+                </View>
+
+                <TouchableOpacity style={estilos.button} onPress={cadastrar}><Text style={estilos.texto}>CADASTRAR</Text></TouchableOpacity>
+            </View>
+        </ScrollView>
     )
 }
 
 const estilos = StyleSheet.create({
+    backgroundScroll: {
+        flexGrow: 1,
+        backgroundColor: '#372775'
+    },
     container: {
         flex: 1,
         flexDirection: 'column',
-        backgroundColor: '#372775',
         alignItems: 'center'
     },
     componentes :{
@@ -166,7 +168,7 @@ const estilos = StyleSheet.create({
     },
     img: {
         width: width * 0.8,
-        height: height * 0.18,
+        height: height * 0.2,
         backgroundColor: '#FFFFFF',
         justifyContent: 'center',
         alignItems: 'center'
