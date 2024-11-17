@@ -9,11 +9,11 @@ const Home = (props) =>{
 
 
     const goToNovaPesquisa = () =>{
-        props.navigation.navigate('NovaPesquisa')
+        props.navigation.navigate('Nova Pesquisa')
     }
 
     const goToAcoesPesquisa = () =>{
-        props.navigation.navigate('AcoesPesquisa')
+        props.navigation.navigate('Carnaval')
     }
 
     return(
