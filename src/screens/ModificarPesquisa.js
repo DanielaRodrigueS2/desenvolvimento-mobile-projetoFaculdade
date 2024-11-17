@@ -1,4 +1,4 @@
-import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet, ScrollView } from 'react-native'
 import { useState } from 'react'
 import { Dimensions } from 'react-native'
 import { launchImageLibrary } from 'react-native-image-picker'
@@ -55,7 +55,7 @@ const ModificarPesquisa = (props) => {
     }
 
     const salvar = () => {
-        props.navigation.navigate('NovaPesquisa')
+        props.navigation.navigate('Home')
     }
 
     const apagar = () => {
@@ -63,7 +63,7 @@ const ModificarPesquisa = (props) => {
     }
 
     const confirmaApagar = () => {
-        props.navigation.navigate('Nova Pesquisa')
+        props.navigation.navigate('Home')
     }
 
     const cancelar = () => {
@@ -71,75 +71,77 @@ const ModificarPesquisa = (props) => {
     }
 
     return (
-        <View style={estilos.container}>
+        <ScrollView contentInsetAdjustmentBehavior="automatic" contentContainerStyle={estilos.backgroundScroll}>
+            <View style={estilos.container}>
+                <View style={estilos.componentes}>
+                    <Text style={estilos.texto}>Nome</Text>
+                    <TextInput style={estilos.textoInput} value={txtNome} onChangeText={setNome} />
+                    {!txtNome && (<Text style={estilos.textoWarning}>Preencha no nome da pesquisa</Text>)}
+                </View>
 
-            <View style={estilos.componentes}>
-                <Text style={estilos.texto}>Nome</Text>
-                <TextInput style={estilos.textoInput} value={txtNome} onChangeText={setNome} />
-                {!txtNome && (<Text style={estilos.textoWarning}>Preencha no nome da pesquisa</Text>)}
-            </View>
+                <View style={estilos.componentes}>
+                    <Text style={estilos.texto}>Data</Text>
+                    <View style={estilos.containerData}>
+                        <TextInput style={estilos.dataInput} value={txtData} dataDetectorTypes={'calendarEvent'} keyboardType='numeric' onChangeText={formataData} />
+                        <TouchableOpacity onPress={() => setShowDatePicker(true)}>
+                            <Icon name='event' size={40} color={'black'} style={{ opacity: 0.5 }}/>
+                        </TouchableOpacity>
+                    </View>
+                    {!txtData && (<Text style={estilos.textoWarning}>Preencha a data</Text>)}
+                </View>
+                {showDatePicker && (
+                    <DateTimePicker
+                        value={new Date()}
+                        mode="date"
+                        display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+                        onChange={onDateChange} />
+                )}
 
-            <View style={estilos.componentes}>
-                <Text style={estilos.texto}>Data</Text>
-                <View style={estilos.containerData}>
-                    <TextInput style={estilos.dataInput} value={txtData} dataDetectorTypes={'calendarEvent'} keyboardType='numeric' onChangeText={formataData} />
-                    <TouchableOpacity onPress={() => setShowDatePicker(true)}>
-                        <Icon name='event' size={40} color={'black'} style={{ opacity: 0.5 }}/>
+                <View style={estilos.componentes}>
+                    <Text style={estilos.texto}>Imagem</Text>
+                    <TouchableOpacity onPress={selecionaImagem}>
+                        <View style={estilos.img}>
+                            {imageUri ?
+                                (<Image source={{uri: imageUri}}/>)
+                            :
+                                (<Text style={estilos.textoImg}>Câmera/Galeria de imagens</Text>)
+                            }
+                        </View>
                     </TouchableOpacity>
                 </View>
-                {!txtData && (<Text style={estilos.textoWarning}>Preencha a data</Text>)}
-            </View>
-            {showDatePicker && (
-                <DateTimePicker
-                    value={new Date()}
-                    mode="date"
-                    display={Platform.OS === 'ios' ? 'spinner' : 'default'}
-                    onChange={onDateChange}
-                />
-            )}
-
-            <View style={estilos.componentes}>
-                <Text style={estilos.texto}>Imagem</Text>
-                <TouchableOpacity onPress={selecionaImagem}>
-                <View style={estilos.img}>
-                    {imageUri ?
-                        (<Image source={{uri: imageUri}}/>)
-                    :
-                        (<Text style={estilos.textoImg}>Câmera/Galeria de imagens</Text>)
-                    }
+                
+                <View style={estilos.saveDelete}>
+                    <TouchableOpacity style={estilos.button} onPress={salvar}><Text style={estilos.texto}>SALVAR</Text></TouchableOpacity>
+                    <TouchableOpacity style={estilos.botaoApagar} onPress={apagar}>
+                        <Icon name='delete' size={50} color={'#FFFFFF'}/>
+                        <Text style={estilos.textoApagar}>Apagar</Text>
+                    </TouchableOpacity>
                 </View>
-                </TouchableOpacity>
-            </View>
-            
-            <View style={estilos.saveDelete}>
-                <TouchableOpacity style={estilos.button} onPress={salvar}><Text style={estilos.texto}>SALVAR</Text></TouchableOpacity>
-                <TouchableOpacity style={estilos.botaoApagar} onPress={apagar}>
-                    <Icon name='delete' size={50} color={'#FFFFFF'}/>
-                    <Text style={estilos.textoApagar}>Apagar</Text>
-                </TouchableOpacity>
-            </View>
 
-            {showPopup && (
-                <View style={estilos.bloqClick}>
-                    <View style={estilos.popup}>
-                    <Text style={estilos.textoPopup}>Tem certeza de apagar essa pesquisa?</Text>
-                    <View style={estilos.popupBotoes} >
-                        <TouchableOpacity style={estilos.opSim} onPress={confirmaApagar}><Text style={estilos.texto}>SIM</Text></TouchableOpacity>
-                        <TouchableOpacity style={estilos.opCanc} onPress={cancelar}><Text style={estilos.texto}>CANCELAR</Text></TouchableOpacity>
-                    </View>    
+                {showPopup && (
+                    <View style={estilos.bloqClick}>
+                        <View style={estilos.popup}>
+                            <Text style={estilos.textoPopup}>Tem certeza de apagar essa pesquisa?</Text>
+                            <View style={estilos.popupBotoes} >
+                                <TouchableOpacity style={estilos.opSim} onPress={confirmaApagar}><Text style={estilos.texto}>SIM</Text></TouchableOpacity>
+                                <TouchableOpacity style={estilos.opCanc} onPress={cancelar}><Text style={estilos.texto}>CANCELAR</Text></TouchableOpacity>
+                            </View>    
+                        </View>
                     </View>
-                </View>
-            )}        
-            
-        </View>
+                )}        
+            </View>
+        </ScrollView>
     )
 }
 
 const estilos = StyleSheet.create({
+    backgroundScroll: {
+        flexGrow: 1,
+        backgroundColor: '#372775'
+    },
     container: {
         flex: 1,
         flexDirection: 'column',
-        backgroundColor: '#372775',
         alignItems: 'center'
     },
     componentes :{
@@ -204,7 +206,7 @@ const estilos = StyleSheet.create({
     },
     img: {
         width: width * 0.8,
-        height: height * 0.18,
+        height: height * 0.2,
         backgroundColor: '#FFFFFF',
         justifyContent: 'center',
         alignItems: 'center'
