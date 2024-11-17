@@ -10,10 +10,10 @@ const AcoesPesquisa = (props) => {
         props.navigation.navigate('Coleta')
     }
     const goToModificarPesquisa = () => {
-      props.navigation.navigate('ModificarPesquisa')
+      props.navigation.navigate('Modificar Pesquisa')
     }
     const goToRelatorio = () => {
-      props.navigation.navigate('Relatorio')
+      props.navigation.navigate('Relatório')
     }
     return(
             /*
