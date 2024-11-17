@@ -4,10 +4,10 @@ import Icones from "../components/Icones";
 const Coleta = (props) => {
 
     const goToAcoesPesquisa = () => {
-        props.navigation.navigate('AcoesPesquisa')
+        props.navigation.navigate('Carnaval')
     }
     const goToAgradecimento = () => {
-        props.navigation.navigate('AcoesPesquisa')
+        props.navigation.navigate('AgradecimentoParticipacao')
     }
     return (
         <View style = {estilos.principal}>
