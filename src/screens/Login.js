@@ -9,7 +9,7 @@ const Login = (props) => {
   
 
   const goToRegister = () => {
-    props.navigation.navigate('Register')
+    props.navigation.navigate('Nova Conta')
   }
 
   const goToHome = () => {
@@ -17,7 +17,7 @@ const Login = (props) => {
   }
 
   const goToRecSenha = () => {
-    props.navigation.navigate("RecuperacaoSenha")
+    props.navigation.navigate("Recuperação de Senha")
   }
 
   return(
