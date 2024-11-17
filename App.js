@@ -19,7 +19,7 @@ const App = () => {
         <Stack.Screen name='Login' component={Login} options={{headerShown: false}}/>
         <Stack.Screen name='Recuperação de Senha' component={RecuperacaoSenha}/>
         <Stack.Screen name='Nova Conta' component={Register}/>
-        <Stack.Screen name='Ações Pesquisa' component={AcoesPesquisa}/>
+        <Stack.Screen name='Carnaval' component={AcoesPesquisa}/>
         <Stack.Screen name='Coleta' component={Coleta} options={{headerShown: false}}/>
         <Stack.Screen name='Home' component={Home} options={{headerShown: false}}/>
         <Stack.Screen name='Drawer' component={Drawer} options={{headerShown: false}}/>
