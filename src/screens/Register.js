@@ -1,9 +1,16 @@
 import { View, Text, TextInput, Button, StyleSheet, Pressable, TouchableOpacity } from "react-native";
+import Login from "./Login";
 
 
-const Register = () => {
+const Register = (props) => {
+
+  const goToLogin = () => {
+    props.navigation.navigate('Login')
+  }
 
     return(
+
+
         <View style={estilos.view} >
     
     
@@ -18,7 +25,7 @@ const Register = () => {
         <TextInput style = {estilos.txtInput}/>
     
     
-        <TouchableOpacity  height = {30} style = {estilos.Btn}> 
+        <TouchableOpacity onPress={goToLogin} height = {30} style = {estilos.Btn}> 
             <Text style = {estilos.TxtBtn}>Cadastrar</Text>
         </TouchableOpacity>
     
