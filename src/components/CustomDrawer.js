@@ -35,7 +35,6 @@ const estilo = StyleSheet.create({
     principal:{
         flex: 1,
         justifyContent: 'space-between',
-        
         paddingTop: 20
         
     },
@@ -47,14 +46,14 @@ const estilo = StyleSheet.create({
         top: 10
     },
     top:{
-        paddingBottom: 600
+        paddingBottom: 500
     },
     botoes:{
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'flex-start',
         left: 30,
-        top: 40
+        top: 30
     },
     textoEmail:{
         color: 'white',

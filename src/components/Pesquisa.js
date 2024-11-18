@@ -8,7 +8,10 @@ const Pesquisa = (props) =>{
     return(
 
         <TouchableOpacity style={estilo.pesquisa} onPress={props.onPress}>
-            <Image source={{uri : img}}></Image>
+            <Image 
+            source={{uri : img}}
+            style={estilo.img}
+            />
             <Text style={estilo.textoNome}>{nome_pesquisa}</Text>
             <Text style={estilo.textoData}>{data_pesquisa}</Text>
         </TouchableOpacity>
@@ -26,7 +29,8 @@ const estilo = StyleSheet.create({
         marginRight: 20
     },
     img:{
-        
+        width: '60%',
+        height: '40%'
     },
     textoNome:{
         color: '#3F92C5',

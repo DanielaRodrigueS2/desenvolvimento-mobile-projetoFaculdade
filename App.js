@@ -20,7 +20,7 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerTintColor: '#573FBA', headerStyle: { backgroundColor: '#2B1D62'}, headerTitleStyle: {fontFamily: 'AveriaLibre-Regular', fontSize: 30, color: '#FFFFFF'}}}>
         <Stack.Screen name='Login' component={Login} options={{headerShown: false}}/>
-        <Stack.Screen name='Recuperação de Senha' component={RecuperacaoSenha}/>
+        <Stack.Screen name='Recuperação de Senha' component={RecuperacaoSenha} options={{headerShown: false}}/>
         <Stack.Screen name='Nova Conta' component={Register}/>
         <Stack.Screen name='Carnaval' component={AcoesPesquisa}/>
         <Stack.Screen name='Coleta' component={Coleta} options={{headerShown: false}}/>
