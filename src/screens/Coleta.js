@@ -15,7 +15,7 @@ const Coleta = (props) => {
                 O que você achou do Carnaval 2024?
             </Text>
             <View style = {estilos.opcoes}>
-                <Icones texto = 'Péssimo' icone = 'sentiment-sad' cor = '#D71616' tela='Coleta' funcao = {goToAgradecimento}/>
+                <Icones texto = 'Péssimo' icone = 'emoticon-angry-outline' cor = '#D71616' tela='Coleta' funcao = {goToAgradecimento}/>
                 <Icones texto = 'Ruim' icone = 'emoticon-sad-outline' cor = '#FF360A' tela='Coleta' funcao = {goToAgradecimento}/>
                 <Icones texto = 'Neutro' icone = 'emoticon-neutral-outline' cor = '#FFC632' tela='Coleta' funcao = {goToAgradecimento}/>
                 <Icones texto = 'Bom' icone = 'emoticon-happy-outline' cor = '#37BD6D' tela='Coleta' funcao = {goToAgradecimento}/>
