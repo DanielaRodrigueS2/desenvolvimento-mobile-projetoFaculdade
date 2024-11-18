@@ -1,5 +1,5 @@
 import { View, Text, TextInput, Button, StyleSheet, Pressable, TouchableOpacity } from "react-native";
-import TxtBtn from "../components/TxtBtn";
+
 
 const Register = () => {
 
@@ -67,7 +67,7 @@ const estilos = StyleSheet.create({
     TxtBtn:{
         color: 'white',
         alignSelf: 'center',
-        paddingTop: 5,
+        paddingTop: '1.5%',
         fontSize: 25,
         fontFamily: 'AveriaLibre-Regular',
     }
