@@ -91,7 +91,7 @@ const estilo = StyleSheet.create({
     },
     TextoInvalido:{
         color: '#FD7979',
-        ontFamily:'AveriaLibre-Regular',
+        fontFamily:'AveriaLibre-Regular',
     },
     textoNormal:{
         color: '#FFFFFF',
