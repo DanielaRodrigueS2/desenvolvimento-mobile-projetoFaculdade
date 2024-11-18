@@ -26,7 +26,7 @@ const estilo = StyleSheet.create({
         justifyContent: 'center',
         borderRadius: 5,
         alignItems: 'center',
-        width: 400,
+        width: '67%',
     },
 
     }

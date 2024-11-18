@@ -12,14 +12,15 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		1DC44BE143FDBF7D17245724 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 428441DD60B4D9A063CE8048 /* PrivacyInfo.xcprivacy */; };
+		640D243F49D24CE8ADB8944A /* AveriaLibre-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10512A77FADE42639B10E97E /* AveriaLibre-Regular.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-projetoteste-projetotesteTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-projetoteste-projetotesteTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		F50A99E06E6D433FB1A6FA6C /* AveriaLibre-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61833D81401F44F1BDF059F6 /* AveriaLibre-Bold.ttf */; };
+		93C3794167A648358F238648 /* AveriaLibre-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97DD1016CDF749428566DAE0 /* AveriaLibre-LightItalic.ttf */; };
 		A46E4099CD774F33A12AF13A /* AveriaLibre-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7064561E522649158FEDC03D /* AveriaLibre-BoldItalic.ttf */; };
 		DA50D760AC554D52881DA3C9 /* AveriaLibre-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68B4994BB26046D884EDC405 /* AveriaLibre-Italic.ttf */; };
 		F33989F8B88943478FDE912B /* AveriaLibre-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5FAAC784B7094E869AC6D56A /* AveriaLibre-Light.ttf */; };
-		93C3794167A648358F238648 /* AveriaLibre-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97DD1016CDF749428566DAE0 /* AveriaLibre-LightItalic.ttf */; };
-		640D243F49D24CE8ADB8944A /* AveriaLibre-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10512A77FADE42639B10E97E /* AveriaLibre-Regular.ttf */; };
+		F50A99E06E6D433FB1A6FA6C /* AveriaLibre-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61833D81401F44F1BDF059F6 /* AveriaLibre-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		00E356EE1AD99517003FC87E /* projetotesteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = projetotesteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* projetotesteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = projetotesteTests.m; sourceTree = "<group>"; };
+		10512A77FADE42639B10E97E /* AveriaLibre-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "AveriaLibre-Regular.ttf"; path = "../assets/fonts/AveriaLibre-Regular.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* projetoteste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = projetoteste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = projetoteste/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = projetoteste/AppDelegate.mm; sourceTree = "<group>"; };
@@ -45,18 +47,18 @@
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = projetoteste/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-projetoteste-projetotesteTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-projetoteste-projetotesteTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-projetoteste.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projetoteste.debug.xcconfig"; path = "Target Support Files/Pods-projetoteste/Pods-projetoteste.debug.xcconfig"; sourceTree = "<group>"; };
+		428441DD60B4D9A063CE8048 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = projetoteste/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-projetoteste.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projetoteste.release.xcconfig"; path = "Target Support Files/Pods-projetoteste/Pods-projetoteste.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-projetoteste-projetotesteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projetoteste-projetotesteTests.debug.xcconfig"; path = "Target Support Files/Pods-projetoteste-projetotesteTests/Pods-projetoteste-projetotesteTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-projetoteste.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-projetoteste.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FAAC784B7094E869AC6D56A /* AveriaLibre-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "AveriaLibre-Light.ttf"; path = "../assets/fonts/AveriaLibre-Light.ttf"; sourceTree = "<group>"; };
+		61833D81401F44F1BDF059F6 /* AveriaLibre-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "AveriaLibre-Bold.ttf"; path = "../assets/fonts/AveriaLibre-Bold.ttf"; sourceTree = "<group>"; };
+		68B4994BB26046D884EDC405 /* AveriaLibre-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "AveriaLibre-Italic.ttf"; path = "../assets/fonts/AveriaLibre-Italic.ttf"; sourceTree = "<group>"; };
+		7064561E522649158FEDC03D /* AveriaLibre-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "AveriaLibre-BoldItalic.ttf"; path = "../assets/fonts/AveriaLibre-BoldItalic.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = projetoteste/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-projetoteste-projetotesteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projetoteste-projetotesteTests.release.xcconfig"; path = "Target Support Files/Pods-projetoteste-projetotesteTests/Pods-projetoteste-projetotesteTests.release.xcconfig"; sourceTree = "<group>"; };
+		97DD1016CDF749428566DAE0 /* AveriaLibre-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "AveriaLibre-LightItalic.ttf"; path = "../assets/fonts/AveriaLibre-LightItalic.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		61833D81401F44F1BDF059F6 /* AveriaLibre-Bold.ttf */ = {isa = PBXFileReference; name = "AveriaLibre-Bold.ttf"; path = "../assets/fonts/AveriaLibre-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		7064561E522649158FEDC03D /* AveriaLibre-BoldItalic.ttf */ = {isa = PBXFileReference; name = "AveriaLibre-BoldItalic.ttf"; path = "../assets/fonts/AveriaLibre-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		68B4994BB26046D884EDC405 /* AveriaLibre-Italic.ttf */ = {isa = PBXFileReference; name = "AveriaLibre-Italic.ttf"; path = "../assets/fonts/AveriaLibre-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		5FAAC784B7094E869AC6D56A /* AveriaLibre-Light.ttf */ = {isa = PBXFileReference; name = "AveriaLibre-Light.ttf"; path = "../assets/fonts/AveriaLibre-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		97DD1016CDF749428566DAE0 /* AveriaLibre-LightItalic.ttf */ = {isa = PBXFileReference; name = "AveriaLibre-LightItalic.ttf"; path = "../assets/fonts/AveriaLibre-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		10512A77FADE42639B10E97E /* AveriaLibre-Regular.ttf */ = {isa = PBXFileReference; name = "AveriaLibre-Regular.ttf"; path = "../assets/fonts/AveriaLibre-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +108,23 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
+				428441DD60B4D9A063CE8048 /* PrivacyInfo.xcprivacy */,
 			);
 			name = projetoteste;
+			sourceTree = "<group>";
+		};
+		15FEB46A5BBD452B91EF8E7E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				61833D81401F44F1BDF059F6 /* AveriaLibre-Bold.ttf */,
+				7064561E522649158FEDC03D /* AveriaLibre-BoldItalic.ttf */,
+				68B4994BB26046D884EDC405 /* AveriaLibre-Italic.ttf */,
+				5FAAC784B7094E869AC6D56A /* AveriaLibre-Light.ttf */,
+				97DD1016CDF749428566DAE0 /* AveriaLibre-LightItalic.ttf */,
+				10512A77FADE42639B10E97E /* AveriaLibre-Regular.ttf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -162,20 +179,6 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
-		};
-		15FEB46A5BBD452B91EF8E7E /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				61833D81401F44F1BDF059F6 /* AveriaLibre-Bold.ttf */,
-				7064561E522649158FEDC03D /* AveriaLibre-BoldItalic.ttf */,
-				68B4994BB26046D884EDC405 /* AveriaLibre-Italic.ttf */,
-				5FAAC784B7094E869AC6D56A /* AveriaLibre-Light.ttf */,
-				97DD1016CDF749428566DAE0 /* AveriaLibre-LightItalic.ttf */,
-				10512A77FADE42639B10E97E /* AveriaLibre-Regular.ttf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -278,6 +281,7 @@
 				F33989F8B88943478FDE912B /* AveriaLibre-Light.ttf in Resources */,
 				93C3794167A648358F238648 /* AveriaLibre-LightItalic.ttf in Resources */,
 				640D243F49D24CE8ADB8944A /* AveriaLibre-Regular.ttf in Resources */,
+				1DC44BE143FDBF7D17245724 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,6 +554,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CC = "";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -577,6 +582,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CXX = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
@@ -596,6 +602,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD = "";
+				LDPLUSPLUS = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -615,7 +623,14 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				USE_HERMES = true;
 			};
 			name = Debug;
 		};
@@ -623,6 +638,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CC = "";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -650,6 +666,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				CXX = "";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
@@ -662,6 +679,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD = "";
+				LDPLUSPLUS = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -680,7 +699,13 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				USE_HERMES = true;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

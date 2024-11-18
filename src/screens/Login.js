@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { View, Text, TextInput, StyleSheet } from 'react-native';
 import TxtBtn from '../components/TxtBtn';
+import  Icon  from 'react-native-vector-icons/MaterialIcons';
 
 
 
@@ -23,8 +24,9 @@ const Login = (props) => {
   return(
     <View style={estilos.view} >
 
-    <Text style={estilos.title} >Satisfying.you</Text>
-
+      
+    <Text style={estilos.title} >Satisfying.you <Icon name='mood' size={30} color={'#ffffff'}/> </Text>
+    
     <Text style = {estilos.info}> E-mail  </Text>
     <TextInput style = {estilos.txtInput} />
 
@@ -33,7 +35,7 @@ const Login = (props) => {
 
     <TxtBtn texto = "Entrar" background = "#37BD6D" height = {40} onPress={goToHome}/>
 
-    <TxtBtn texto = "Criar conta" background= "#419ED7"height = {30} onPress={goToRegister}/>
+    <TxtBtn  texto = "Criar conta" background= "#419ED7"height = {30} onPress={goToRegister} />
 
     <TxtBtn texto = "Esqueci minha senha" background= "#B5C7D1" height = {30} onPress={goToRecSenha}/>
 
@@ -50,7 +52,7 @@ const estilos = StyleSheet.create({
     justifyContent: 'space-between', 
     alignItems: 'center', 
     backgroundColor: '#372775',
-    padding: 25,
+    padding: '5%',
     fontFamily: 'AveriaLibre-Regular',
     
   },
@@ -66,15 +68,16 @@ const estilos = StyleSheet.create({
   info: {
     color:'white',
     fontSize: 15,
-    marginRight: 350,
-    marginBottom: -15,
+    alignSelf: 'start',
+    marginLeft: '16%',
+    marginBottom: '-2%',
     fontFamily: 'AveriaLibre-Regular',
   },
 
   txtInput: {
     backgroundColor: 'white',
-    width: 400,
-    height: 30,
+    width: '67%',
+    height: '10%',
     borderRadius: 5,
     fontFamily: 'AveriaLibre-Regular',
   },

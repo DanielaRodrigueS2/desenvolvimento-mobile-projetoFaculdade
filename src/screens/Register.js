@@ -42,14 +42,14 @@ const estilos = StyleSheet.create({
       color:'white',
       fontSize: 15,
       alignSelf: 'start',
-      marginLeft: 130,
-      paddingTop:20,
+      marginLeft: '20%',
+      paddingTop: '4%',
       fontFamily: 'AveriaLibre-Regular',
     },
   
     txtInput: {
         backgroundColor: 'white',
-        width: 400,
+        width: '60%',
         height: 30,
         borderRadius: 5,
         fontFamily: 'AveriaLibre-Regular',
@@ -57,10 +57,10 @@ const estilos = StyleSheet.create({
 
 
     Btn:{
-        marginTop:50,
+        marginTop:'5%',
         backgroundColor: '#37BD6D',
-        height: 40,
-        width: 400,
+        height: '12%',
+        width: '60%',
         borderRadius: 5,
     },
 
