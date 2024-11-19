@@ -46,7 +46,7 @@ const estilo = StyleSheet.create({
         top: 10
     },
     top:{
-        paddingBottom: 500
+        paddingBottom: 300
     },
     botoes:{
         flexDirection: 'row',
