@@ -53,7 +53,7 @@ const estilo = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'flex-start',
         left: 30,
-        top: 30
+        top: 15
     },
     textoEmail:{
         color: 'white',
