@@ -1,76 +1,101 @@
 import * as React from 'react';
+import { useState } from 'react';
 import { View, Text, TextInput, StyleSheet } from 'react-native';
 import TxtBtn from '../components/TxtBtn';
-import  Icon  from 'react-native-vector-icons/MaterialIcons';
-
-
-
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth_mod } from '../firebase'; 
 
 const Login = (props) => {
-  
+
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const [erroEmail, setErroEmail] = useState('');
+
+  const handleEmailChange = (text) => {
+    setEmail(text);
+    if (!text.includes('@') || !text.includes('.com')) {
+      setErroEmail('Por favor, insira um e-mail válido.');
+    } else {
+      setErroEmail('');
+    }
+  };
 
   const goToRegister = () => {
-    props.navigation.navigate('Nova Conta')
-  }
+    props.navigation.navigate('Nova Conta');
+  };
 
   const goToHome = () => {
-    props.navigation.navigate("Drawer")
-  }
+      props.navigation.navigate('Drawer');
+
+  };
 
   const goToRecSenha = () => {
-    props.navigation.navigate("Recuperação de Senha")
-  }
+    props.navigation.navigate('Recuperação de Senha');
+  };
 
-  return(
-    <View style={estilos.view} >
+const autenticarUsuario = () => {
+  signInWithEmailAndPassword(auth_mod,email,senha)
+  .then((userLogged) => {
+    console.log('Usuario logado com sucesso' + JSON.stringify(userLogged))
+    goToHome()
+  })
+  .catch((erro) =>{
+    console.log('erro ao autenticar'+ JSON.stringify(erro))
+  } )
+}
 
-      
-    <Text style={estilos.title} >Satisfying.you <Icon name='mood' size={30} color={'#ffffff'}/> </Text>
-    
-    <Text style = {estilos.info}> E-mail  </Text>
-    <TextInput style = {estilos.txtInput} />
+  return (
 
-    <Text style = {estilos.info}> Senha </Text>
-    <TextInput style = {estilos.txtInput}/>
+    <View style={estilos.view}>
+      <Text style={estilos.title}>
+        Satisfying.you <Icon name="mood" size={30} color={'#ffffff'} />
+      </Text>
 
-    <TxtBtn texto = "Entrar" background = "#37BD6D" height = {40} onPress={goToHome}/>
 
-    <TxtBtn  texto = "Criar conta" background= "#419ED7"height = {30} onPress={goToRegister} />
+      <TextInput
+        style={estilos.txtInput}
+        value={email}
+        onChangeText={handleEmailChange}
+        placeholder="Digite seu e-mail"
+        
+      />
 
-    <TxtBtn texto = "Esqueci minha senha" background= "#B5C7D1" height = {30} onPress={goToRecSenha}/>
+      {erroEmail ? <Text style={estilos.erro}>{erroEmail}</Text> : null}
+
+      <TextInput
+        style={estilos.txtInput}
+        value={senha}
+        onChangeText={setSenha}
+        placeholder="Digite sua senha"
+        secureTextEntry={true}
+      />
+
+      <TxtBtn texto="Entrar" background="#37BD6D" height={40} onPress={autenticarUsuario} />
+
+      <TxtBtn texto="Criar conta" background="#419ED7" height={30} onPress={goToRegister} />
+
+      <TxtBtn texto="Esqueci minha senha" background="#B5C7D1" height={30} onPress={goToRecSenha} />
 
     </View>
   );
 };
 
 const estilos = StyleSheet.create({
-
-
   view: {
-    flex: 1, 
-    flexDirection: 'column', 
-    justifyContent: 'space-between', 
-    alignItems: 'center', 
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     backgroundColor: '#372775',
     padding: '5%',
     fontFamily: 'AveriaLibre-Regular',
-    
   },
 
   title: {
     alignItems: 'center',
     fontSize: 30,
-    color:'white',
-    fontFamily: 'AveriaLibre-Regular',
-    
-  },
-
-  info: {
-    color:'white',
-    fontSize: 15,
-    alignSelf: 'start',
-    marginLeft: '16%',
-    marginBottom: '-2%',
+    color: 'white',
     fontFamily: 'AveriaLibre-Regular',
   },
 
@@ -80,9 +105,16 @@ const estilos = StyleSheet.create({
     height: '10%',
     borderRadius: 5,
     fontFamily: 'AveriaLibre-Regular',
+    paddingHorizontal: 10,
   },
 
+  erro: {
+    color: 'red',
+    fontSize: 12,
+    alignSelf: 'flex-start',
+    marginLeft: '17%',
+    marginTop: '-2%',
+  },
+});
 
-})
-
-export default Login
+export default Login;

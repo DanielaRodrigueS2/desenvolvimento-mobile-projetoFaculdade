@@ -9,7 +9,7 @@ const Agradecimento  = (props) => {
         }, 3000); 
     
         return () => clearTimeout(goBack);
-    }, []);
+    },);
     
 
     return(
