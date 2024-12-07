@@ -12,7 +12,6 @@ import { useSelector } from 'react-redux'
 const { width, height } = Dimensions.get('window')
 
 const NovaPesquisa = (props) => {
-
     const db = initializeFirestore(app, { experimentalForceLongPolling: true })
     const pesquisaCollection = collection(db, 'pesquisasUsers')
     const userRef = doc(pesquisaCollection, 'caio')

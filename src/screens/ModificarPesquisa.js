@@ -11,7 +11,6 @@ import { useSelector } from 'react-redux'
 const { width, height } = Dimensions.get('window')
 
 const ModificarPesquisa = (props) => {
-
     const db = initializeFirestore(app, { experimentalForceLongPolling: true })
 
     const [txtNome, setNome] = useState('Carnaval 2024')
