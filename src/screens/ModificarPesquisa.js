@@ -4,10 +4,15 @@ import { Dimensions } from 'react-native'
 import { launchImageLibrary } from 'react-native-image-picker'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import DateTimePicker from '@react-native-community/datetimepicker'
+import { initializeFirestore, deleteDoc, updateDoc } from 'firebase/firestore'
+import app from '../firebase/firebase'
+import { useSelector } from 'react-redux'
 
 const { width, height } = Dimensions.get('window')
 
 const ModificarPesquisa = (props) => {
+
+    const db = initializeFirestore(app, { experimentalForceLongPolling: true })
 
     const [txtNome, setNome] = useState('Carnaval 2024')
     const [txtData, setData] = useState('16/02/2024')
@@ -15,20 +20,33 @@ const ModificarPesquisa = (props) => {
     const [showPopup, setShowPopup] = useState(false)
     const [showDatePicker, setShowDatePicker] = useState(false)
 
-    const selecionaImagem = () => {
-        const options = {
-        mediaType: 'photo',
-        quality: 1,
-        }
+    const convertUriToBase64 = async (uri) => {
+        const resizedImage = await ImageResizer.createResizedImage(
+            uri,
+            400,
+            400,
+            'JPEG',
+            100
+        )
 
-        launchImageLibrary(options, (response) => {
-        if (response.didCancel) {
-            console.log('User cancelled image picker')
-        } else if (response.errorCode) {
-            console.log('ImagePicker Error: ', response.errorMessage);
-        } else if (response.assets && response.assets.length > 0) {
-            setImageUri(response.assets[0].uri)
+        const imageUri = await fetch(resizedImage.uri)
+        const imagemBlob = await imageUri.blob()
+        const reader = new FileReader()
+
+        reader.onloadend = () => {
+            setImageUri(reader.result)
         }
+        reader.readAsDataURL(imagemBlob)
+    }
+
+    const selecionaImagem = () => {
+        launchImageLibrary({ mediaType: 'photo' }, (result) => {
+            if (result.didCancel) {
+                return
+            }
+            else {
+                convertUriToBase64(result.assets[0].uri)
+            }
         })
     }
 
@@ -54,8 +72,14 @@ const ModificarPesquisa = (props) => {
         }
     }
 
-    const salvar = () => {
-        props.navigation.navigate('Home')
+    const salvar = async () => {
+        const pesquisaRef = doc(db, 'pesquisaUsers', user.userId, 'pesquisas', pesquisa.pesquisaId)
+        updateDoc(pesquisaRef, {
+            nome: txtNome,
+            data: txtData,
+            imagem: imageUri
+        })
+        props.navigation.navigate('Drawer')
     }
 
     const apagar = () => {
@@ -63,7 +87,9 @@ const ModificarPesquisa = (props) => {
     }
 
     const confirmaApagar = () => {
-        props.navigation.navigate('Home')
+        const pesquisaRef = doc(db, 'pesquisaUsers', user.userId, 'pesquisas', pesquisa.pesquisaId)
+        deleteDoc(pesquisaRef)
+        props.navigation.navigate('Drawer')
     }
 
     const cancelar = () => {
@@ -84,7 +110,7 @@ const ModificarPesquisa = (props) => {
                     <View style={estilos.containerData}>
                         <TextInput style={estilos.dataInput} value={txtData} dataDetectorTypes={'calendarEvent'} keyboardType='numeric' onChangeText={formataData} />
                         <TouchableOpacity onPress={() => setShowDatePicker(true)}>
-                            <Icon name='event' size={40} color={'black'} style={{ opacity: 0.5 }}/>
+                            <Icon name='event' size={40} color={'black'} style={{ opacity: 0.5 }} />
                         </TouchableOpacity>
                     </View>
                     {!txtData && (<Text style={estilos.textoWarning}>Preencha a data</Text>)}
@@ -102,18 +128,18 @@ const ModificarPesquisa = (props) => {
                     <TouchableOpacity onPress={selecionaImagem}>
                         <View style={estilos.img}>
                             {imageUri ?
-                                (<Image source={{uri: imageUri}}/>)
-                            :
+                                (<Image source={{ uri: imageUri }} />)
+                                :
                                 (<Text style={estilos.textoImg}>Câmera/Galeria de imagens</Text>)
                             }
                         </View>
                     </TouchableOpacity>
                 </View>
-                
+
                 <View style={estilos.saveDelete}>
-                    <TouchableOpacity style={estilos.button} onPress={salvar}><Text style={estilos.texto}>SALVAR</Text></TouchableOpacity>
+                    <TouchableOpacity style={estilos.button} ><Text style={estilos.texto}>SALVAR</Text></TouchableOpacity>
                     <TouchableOpacity style={estilos.botaoApagar} onPress={apagar}>
-                        <Icon name='delete' size={50} color={'#FFFFFF'}/>
+                        <Icon name='delete' size={50} color={'#FFFFFF'} />
                         <Text style={estilos.textoApagar}>Apagar</Text>
                     </TouchableOpacity>
                 </View>
@@ -123,12 +149,12 @@ const ModificarPesquisa = (props) => {
                         <View style={estilos.popup}>
                             <Text style={estilos.textoPopup}>Tem certeza de apagar essa pesquisa?</Text>
                             <View style={estilos.popupBotoes} >
-                                <TouchableOpacity style={estilos.opSim} onPress={confirmaApagar}><Text style={estilos.texto}>SIM</Text></TouchableOpacity>
+                                <TouchableOpacity style={estilos.opSim} ><Text style={estilos.texto}>SIM</Text></TouchableOpacity>
                                 <TouchableOpacity style={estilos.opCanc} onPress={cancelar}><Text style={estilos.texto}>CANCELAR</Text></TouchableOpacity>
-                            </View>    
+                            </View>
                         </View>
                     </View>
-                )}        
+                )}
             </View>
         </ScrollView>
     )
@@ -144,13 +170,13 @@ const estilos = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'center'
     },
-    componentes :{
+    componentes: {
         marginTop: width * 0.05
     },
     textoInput: {
         width: width * 0.8,
         height: height * 0.07,
-        backgroundColor:'#FFFFFF',
+        backgroundColor: '#FFFFFF',
         fontFamily: 'AveriaLibre-Regular',
         color: '#3F92C5',
         fontSize: 28,
@@ -159,7 +185,7 @@ const estilos = StyleSheet.create({
     dataInput: {
         flex: 1,
         height: height * 0.07,
-        backgroundColor:'#FFFFFF',
+        backgroundColor: '#FFFFFF',
         fontFamily: 'AveriaLibre-Regular',
         color: '#3F92C5',
         fontSize: 28,
@@ -170,7 +196,7 @@ const estilos = StyleSheet.create({
         height: height * 0.07,
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor:'#FFFFFF',
+        backgroundColor: '#FFFFFF',
         paddingRight: width * 0.025
     },
     button: {
@@ -214,7 +240,7 @@ const estilos = StyleSheet.create({
     saveDelete: {
         width: width * 0.8,
         flexDirection: 'row',
-        justifyContent: 'space-between', 
+        justifyContent: 'space-between',
         alignItems: 'center'
     },
     botaoApagar: {
@@ -230,7 +256,7 @@ const estilos = StyleSheet.create({
     },
     bloqClick: {
         flex: 1,
-        top: 0, 
+        top: 0,
         bottom: 0,
         left: 0,
         right: 0,
@@ -252,7 +278,7 @@ const estilos = StyleSheet.create({
     opSim: {
         width: '45%',
         height: '70%',
-        backgroundColor: '#FF8383', 
+        backgroundColor: '#FF8383',
         justifyContent: 'center',
         alignItems: 'center'
     },
@@ -264,9 +290,9 @@ const estilos = StyleSheet.create({
         alignItems: 'center'
     },
     popupBotoes: {
-        flexDirection:'row',
+        flexDirection: 'row',
         width: '98%',
-        justifyContent:'space-around',
+        justifyContent: 'space-around',
         marginTop: '10%'
     }
 })
