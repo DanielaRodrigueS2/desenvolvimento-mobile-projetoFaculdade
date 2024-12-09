@@ -1,12 +1,19 @@
-import { useState } from "react";
-import { View, Text, TextInput, ScrollView, TouchableOpacity, StyleSheet,} from "react-native";
+import { useState , useEffect} from "react";
+import { View, Text, TextInput, ScrollView, TouchableOpacity, StyleSheet,FlatList} from "react-native";
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import Pesquisa from "../components/Pesquisa";
+import {initializeFirestore, collection, query, onSnapshot} from 'firebase/firestore'
+import app from './firebase'
+import { useSelector } from "react-redux";
 
 const Home = (props) =>{
 
-    const [busca, setBusca] = useState('Insira o termo de busca...')
+    const userId = useSelector((state) => state.login.userId)
+    const db = initializeFirestore(app, {experimentalAutoDetectLongPolling: true})
+    const PesquisasUsers = doc(db, 'pesquisaUsers', userId,'pesquisas')
+    const [ListaPesquisas, setListaPesquisas] = useState()
 
+    const [busca, setBusca] = useState('Insira o termo de busca...')
 
     const goToNovaPesquisa = () =>{
         props.navigation.navigate('Nova Pesquisa')
@@ -15,6 +22,27 @@ const Home = (props) =>{
     const goToAcoesPesquisa = () =>{
         props.navigation.navigate('Carnaval')
     }
+
+    useEffect(() =>{
+        const query = query(PesquisasUsers)
+        const unsubscribe = onSnapshot(query, (snapshot) =>{
+            const pesq =[]
+            snapshot.forEach((doc) =>{
+                pesq.push({
+                    pesquisaId : doc.id,
+                    ...doc.data()
+                })
+            })
+            setListaPesquisas(pesq)
+        })
+    },[])
+
+    const itemPesquisa = ({item}) =>{
+        return(
+            <Pesquisa nome = {item.nome} data = {item.data} img ={item.img}></Pesquisa>
+        )
+    }
+
 
     return(
 
@@ -28,11 +56,7 @@ const Home = (props) =>{
                     <Icon  style={estilo.icon} name="search" size = {20} color = "#8B8B8B" />
                 </View>
 
-                <ScrollView id="Pesquisas" style={estilo.Pesquisas}  contentContainerStyle={estilo.scrollContent} horizontal={true}>
-                    <Pesquisa nome="Sapo" data="20/10/2024" img="https://reactnative.dev/img/tiny_logo.png" onPress={goToAcoesPesquisa}></Pesquisa>
-                    <Pesquisa nome="Sapo" data="20/10/2024" img="https://reactnative.dev/img/tiny_logo.png" onPress={goToAcoesPesquisa}></Pesquisa>
-                    <Pesquisa nome="Sapo" data="20/10/2024" img="https://reactnative.dev/img/tiny_logo.png" onPress={goToAcoesPesquisa}></Pesquisa>
-                </ScrollView>
+                <FlatList data={ListaPesquisas} renderItem={itemPesquisa} keyExtractor={pesquisa => pesquisa.pesquisaId}/>
 
                 <View id="NovaPesquisa" style={estilo.NovaPesquisa}>
                     <TouchableOpacity style={estilo.BotaoPesquisa} onPress={goToNovaPesquisa}> 
