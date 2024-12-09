@@ -1,65 +1,67 @@
-import { useState , useEffect} from "react";
-import { View, Text, TextInput, ScrollView, TouchableOpacity, StyleSheet,FlatList} from "react-native";
+import { useState, useEffect } from "react";
+import { View, Text, TextInput, ScrollView, TouchableOpacity, StyleSheet, FlatList } from "react-native";
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import Pesquisa from "../components/Pesquisa";
-import {initializeFirestore, collection, query, onSnapshot} from 'firebase/firestore'
-import app from './firebase'
+import { getFirestore, initializeFirestore, collection, onSnapshot, doc, query } from 'firebase/firestore'
+import app from '../firebase/firebase'
 import { useSelector } from "react-redux";
 
-const Home = (props) =>{
+const Home = (props) => {
 
     const userId = useSelector((state) => state.login.userId)
-    const db = initializeFirestore(app, {experimentalAutoDetectLongPolling: true})
-    const PesquisasUsers = doc(db, 'pesquisaUsers', userId,'pesquisas')
-    const [ListaPesquisas, setListaPesquisas] = useState()
+    const db = initializeFirestore(app, { experimentalForceLongPolling: true })
+    const PesquisasUsers = collection(doc(db, 'pesquisasUsers', userId), 'pesquisas');
+    const [ListaPesquisas, setListaPesquisas] = useState([])
 
     const [busca, setBusca] = useState('Insira o termo de busca...')
 
-    const goToNovaPesquisa = () =>{
+    const goToNovaPesquisa = () => {
         props.navigation.navigate('Nova Pesquisa')
     }
 
-    const goToAcoesPesquisa = () =>{
+    const goToAcoesPesquisa = () => {
         props.navigation.navigate('Carnaval')
     }
 
-    useEffect(() =>{
-        const query = query(PesquisasUsers)
-        const unsubscribe = onSnapshot(query, (snapshot) =>{
-            const pesq =[]
-            snapshot.forEach((doc) =>{
+    useEffect(() => {
+        const unsubscribe = onSnapshot(PesquisasUsers, (snapshot) => {
+            const pesq = []
+            snapshot.forEach((doc) => {
                 pesq.push({
-                    pesquisaId : doc.id,
+                    pesquisaId: doc.id,
                     ...doc.data()
                 })
             })
             setListaPesquisas(pesq)
         })
-    },[])
+    }, [])
 
-    const itemPesquisa = ({item}) =>{
-        return(
-            <Pesquisa nome = {item.nome} data = {item.data} img ={item.img}></Pesquisa>
+    const itemPesquisa = ({ item }) => {
+        return (
+            <Pesquisa nome={item.nome} data={item.data} img={item.img} onPress={goToAcoesPesquisa}></Pesquisa>
         )
     }
 
 
-    return(
+    return (
 
-        <View id="Tela" style={estilo.Principal}>   
-            
+        <View id="Tela" style={estilo.Principal}>
+
             <View id="Main" style={estilo.Main}>
 
                 <View id="BarraPesquisa" style={estilo.BarraPesquisa}>
 
                     <TextInput style={estilo.InputBarraPesquisa} value={busca} onChangeText={setBusca} ></TextInput>
-                    <Icon  style={estilo.icon} name="search" size = {20} color = "#8B8B8B" />
+                    <Icon style={estilo.icon} name="search" size={20} color="#8B8B8B" />
                 </View>
 
-                <FlatList data={ListaPesquisas} renderItem={itemPesquisa} keyExtractor={pesquisa => pesquisa.pesquisaId}/>
+                <FlatList data={ListaPesquisas} renderItem={itemPesquisa}
+                    keyExtractor={pesquisa => pesquisa.pesquisaId}
+                    contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }} 
+                    style={estilo.Pesquisas} horizontal={true} />
 
                 <View id="NovaPesquisa" style={estilo.NovaPesquisa}>
-                    <TouchableOpacity style={estilo.BotaoPesquisa} onPress={goToNovaPesquisa}> 
+                    <TouchableOpacity style={estilo.BotaoPesquisa} onPress={goToNovaPesquisa}>
                         <Text style={estilo.textoNormal}>Nova Pesquisa</Text>
                     </TouchableOpacity>
                 </View>
@@ -67,85 +69,87 @@ const Home = (props) =>{
             </View>
         </View>
     )
-        
+
 }
 
 const estilo = StyleSheet.create({
 
-    Principal:{
-        flex:1,
+    Principal: {
+        flex: 1,
         backgroundColor: '#372775'
     },
 
-    Header:{
+    Header: {
         flex: 0.1,
         backgroundColor: '#2B1D62',
         alignItems: 'flex-start',
         justifyContent: 'center'
     },
 
-    Main:{
+    Main: {
         flex: 0.9,
         alignItems: 'center',
         justifyContent: 'space-around'
     },
 
-    BarraPesquisa:{
+    BarraPesquisa: {
         flex: 0.2,
         justifyContent: 'center',
         width: '80%'
 
     },
 
-    Pesquisas:{
+    Pesquisas: {
         flex: 0.6,
         width: '80%',
-        height: '100%'
+        height: '100%',
+        horizontal : 'true',
+        paddingTop: 30
     },
 
-    NovaPesquisa:{
+    NovaPesquisa: {
         flex: 0.2,
         alignItems: 'center',
         justifyContent: 'center',
         width: '80%'
-        
+
     },
 
-    BotaoPesquisa:{
-        backgroundColor:'#37BD6D',
+    BotaoPesquisa: {
+        backgroundColor: '#37BD6D',
         alignItems: 'center',
         width: '100%',
         height: 60,
-        justifyContent:'center'
+        justifyContent: 'center'
     },
 
-    InputBarraPesquisa:{
+    InputBarraPesquisa: {
         backgroundColor: '#FFFFFF',
-        fontFamily:'AveriaLibre-Regular',
+        fontFamily: 'AveriaLibre-Regular',
         color: '#8B8B8B',
         width: '100%',
         paddingLeft: 30,
-        
+
     },
 
-    icon:{
+    icon: {
         position: 'absolute',
         left: 5,
-      
+
     },
 
-    textoNormal:{
+    textoNormal: {
         color: '#FFFFFF',
-        fontFamily:'AveriaLibre-Regular',
+        fontFamily: 'AveriaLibre-Regular',
         fontSize: 20
 
     },
 
-    menu:{
+    menu: {
         left: 10
     },
 
-    scrollContent:{
+    scrollContent: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-around'
