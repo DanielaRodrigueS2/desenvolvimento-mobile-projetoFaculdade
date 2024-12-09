@@ -11,7 +11,7 @@ export const pesquisaSlice = createSlice({
     name: 'pesquisa',
     initialState: initialValues,
     reducers: {
-        reducerSetLogin: (state, action) => {
+        reducerSetPesquisa: (state, action) => {
             state.pesquisaId = action.payload.pesquisaId
             state.nome = action.payload.nome
             state.data = action.payload.data
@@ -20,5 +20,5 @@ export const pesquisaSlice = createSlice({
     }
 })
 
-export const { reducerSetLogin } = pesquisaSlice.actions
+export const { reducerSetPesquisa } = pesquisaSlice.actions
 export default pesquisaSlice.reducer
