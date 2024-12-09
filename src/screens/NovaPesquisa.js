@@ -6,15 +6,17 @@ import DateTimePicker from '@react-native-community/datetimepicker'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import ImageResizer from 'react-native-image-resizer'
 import { initializeFirestore, collection, addDoc, doc } from 'firebase/firestore'
-import app from '../firebase/firebase'
+import app from './firebase'
 import { useSelector } from 'react-redux'
 
 const { width, height } = Dimensions.get('window')
 
 const NovaPesquisa = (props) => {
+    const userId = useSelector((state) => state.login.userId)
+
     const db = initializeFirestore(app, { experimentalForceLongPolling: true })
     const pesquisaCollection = collection(db, 'pesquisasUsers')
-    const userRef = doc(pesquisaCollection, 'caio')
+    const userRef = doc(pesquisaCollection, userId)
     const pesquisaRef = collection(userRef, 'pesquisas')
 
     const [txtNome, setNome] = useState('')
