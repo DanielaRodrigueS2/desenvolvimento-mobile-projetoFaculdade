@@ -62,7 +62,7 @@ const Home = (props) => {
                 </View>
 
                 <FlatList data={ListaPesquisas} renderItem={itemPesquisa}
-                    keyExtractor={pesquisaId => pesquisa.pesquisaId}
+                    keyExtractor={(item) => item.pesquisaId}
                     contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }} 
                     style={estilo.Pesquisas} horizontal={true} />
 
