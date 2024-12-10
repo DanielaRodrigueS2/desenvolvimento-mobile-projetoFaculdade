@@ -44,7 +44,7 @@ const Home = (props) => {
     const itemPesquisa = ({ item }) => {
         return (
             <Pesquisa nome={item.nome} data={item.data} img={item.img} 
-            onPress={()=>goToAcoesPesquisa(item.pesquisa, item.nome, item.data, item.img)}></Pesquisa>
+            onPress={()=>goToAcoesPesquisa(item.pesquisaId, item.nome, item.data, item.img)}></Pesquisa>
         )
     }
 
@@ -62,7 +62,7 @@ const Home = (props) => {
                 </View>
 
                 <FlatList data={ListaPesquisas} renderItem={itemPesquisa}
-                    keyExtractor={pesquisa => pesquisa.pesquisaId}
+                    keyExtractor={pesquisaId => pesquisa.pesquisaId}
                     contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }} 
                     style={estilo.Pesquisas} horizontal={true} />
 
