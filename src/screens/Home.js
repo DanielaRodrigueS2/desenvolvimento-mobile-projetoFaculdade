@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
-import { View, Text, TextInput, ScrollView, TouchableOpacity, StyleSheet, FlatList } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, FlatList } from "react-native";
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import Pesquisa from "../components/Pesquisa";
-import { getFirestore, initializeFirestore, collection, onSnapshot, doc, query } from 'firebase/firestore'
-import app from '../firebase/firebase'
-import { useSelector } from "react-redux";
+import { initializeFirestore, collection, onSnapshot, doc } from 'firebase/firestore'
+import app from '../firebase'
+import { useSelector , useDispatch} from "react-redux";
+import { reducerSetPesquisa } from "../redux/pesquisaSlice";
+
 
 const Home = (props) => {
 
@@ -12,6 +14,8 @@ const Home = (props) => {
     const db = initializeFirestore(app, { experimentalForceLongPolling: true })
     const PesquisasUsers = collection(doc(db, 'pesquisasUsers', userId), 'pesquisas');
     const [ListaPesquisas, setListaPesquisas] = useState([])
+    
+    const dispatch = useDispatch()
 
     const [busca, setBusca] = useState('Insira o termo de busca...')
 
@@ -19,8 +23,9 @@ const Home = (props) => {
         props.navigation.navigate('Nova Pesquisa')
     }
 
-    const goToAcoesPesquisa = () => {
-        props.navigation.navigate('Carnaval')
+    const goToAcoesPesquisa = (pesquisaId, nome, data, img) => {
+        dispatch(reducerSetPesquisa({pesquisaId: pesquisaId, nome : nome, data: data, imagem: img}))
+        props.navigation.navigate('AcoesPesquisa')
     }
 
     useEffect(() => {
@@ -38,7 +43,8 @@ const Home = (props) => {
 
     const itemPesquisa = ({ item }) => {
         return (
-            <Pesquisa nome={item.nome} data={item.data} img={item.img} onPress={goToAcoesPesquisa}></Pesquisa>
+            <Pesquisa nome={item.nome} data={item.data} img={item.img} 
+            onPress={()=>goToAcoesPesquisa(item.pesquisa, item.nome, item.data, item.img)}></Pesquisa>
         )
     }
 
