@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import Icones from '../components/Icones';
 import {useDispatch} from 'react-redux';
-import {incrementarColeta} from '../redux/slices/pesquisaSlice';
+import {incrementarColeta} from '../redux/pesquisaSlice';
 
 const Coleta = props => {
   const dispatch = useDispatch();
