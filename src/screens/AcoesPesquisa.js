@@ -1,5 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Icones from "../components/Icones";
+import { useSelector } from "react-redux";
 
 //Library Add Check
 //donut large
@@ -7,7 +8,7 @@ import Icones from "../components/Icones";
 const AcoesPesquisa = (props) => {
 
     const goToColeta = () => {
-        props.navigation.navigate('Coleta')
+      props.navigation.navigate('Coleta')
     }
     const goToModificarPesquisa = () => {
       props.navigation.navigate('Modificar Pesquisa')
@@ -15,12 +16,9 @@ const AcoesPesquisa = (props) => {
     const goToRelatorio = () => {
       props.navigation.navigate('Relatorio')
     }
+    const nomePesq = useSelector((state) => state.pesquisa.nome)
+    props.navigation.setOptions({ title: nomePesq})
     return(
-            /*
-            <View style = {estilos.header}>
-                <Text style = {estilos.headerText}>Carnaval</Text>
-            </View>
-            */
       <View style={estilos.principal}>     
         <View style = {estilos.inferior}>
           <Icones texto = 'Modificar' icone = 'edit' cor = 'white' tela='AcoesPesquisa' funcao={goToModificarPesquisa}/>
