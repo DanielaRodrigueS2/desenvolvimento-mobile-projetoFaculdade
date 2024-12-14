@@ -1,16 +1,18 @@
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native'
 import { DrawerContentScrollView} from '@react-navigation/drawer'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-
+import { useSelector} from "react-redux";
 
 const CustomDrawer = (props) =>{
     
-    
+    const emailUser = useSelector((state) => state.login.email)
+
+
     return(
         <DrawerContentScrollView {...props} contentContainerStyle={{ flexGrow: 1 }} style={estilo.principal}>
             <View style={estilo.main}>
                 <View> 
-                    <Text style={estilo.textoEmail}>email@gmail.com</Text> 
+                    <Text style={estilo.textoEmail}>{emailUser}</Text> 
                     <View style={estilo.linha}>
                         <Text>a</Text>
                     </View>
