@@ -26,19 +26,19 @@ const estilo = StyleSheet.create({
         marginRight: 20
     },
     img:{
-        width: 20,
-        height: 20,
+        width: 130,
+        height: 140,
         marginBottom: 5
     },
     textoNome:{
         color: '#3F92C5',
         fontFamily:'AveriaLibre-Regular',
-        fontSize: 20
+        fontSize: 25
     },
     textoData:{
         color: '#8B8B8B',
         fontFamily:'AveriaLibre-Regular',
-        fontSize: 10
+        fontSize: 15
     }
 
 })
