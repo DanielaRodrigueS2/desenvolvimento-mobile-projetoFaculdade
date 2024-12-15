@@ -3,10 +3,14 @@ import { useState } from 'react';
 import { View, Text, TextInput, StyleSheet } from 'react-native';
 import TxtBtn from '../components/TxtBtn';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth_mod } from '../firebase'; 
+import { signInWithEmailAndPassword, getAuth } from 'firebase/auth';
+import { auth_mod } from '../firebase';
+import { reducerSetLogin } from '../redux/loginSlice';
+import { useDispatch } from 'react-redux';
 
 const Login = (props) => {
+
+  const dispatch = useDispatch()
 
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
@@ -26,24 +30,30 @@ const Login = (props) => {
   };
 
   const goToHome = () => {
-      props.navigation.navigate('Drawer');
+    const auth = getAuth();
+    const user = auth.currentUser;
+    if (user) {
+      dispatch(reducerSetLogin({ userId: user.uid, email: email }));
 
+      // Navegar para a tela "Drawer"
+      props.navigation.navigate('Drawer');
+    }
   };
 
   const goToRecSenha = () => {
     props.navigation.navigate('Recuperação de Senha');
   };
 
-const autenticarUsuario = () => {
-  signInWithEmailAndPassword(auth_mod,email,senha)
-  .then((userLogged) => {
-    console.log('Usuario logado com sucesso' + JSON.stringify(userLogged))
-    goToHome()
-  })
-  .catch((erro) =>{
-    console.log('erro ao autenticar'+ JSON.stringify(erro))
-  } )
-}
+  const autenticarUsuario = () => {
+    signInWithEmailAndPassword(auth_mod, email, senha)
+      .then((userLogged) => {
+        console.log('Usuario logado com sucesso' + JSON.stringify(userLogged))
+        goToHome()
+      })
+      .catch((erro) => {
+        console.log('erro ao autenticar' + JSON.stringify(erro))
+      })
+  }
 
   return (
 
@@ -58,7 +68,7 @@ const autenticarUsuario = () => {
         value={email}
         onChangeText={handleEmailChange}
         placeholder="Digite seu e-mail"
-        
+
       />
 
       {erroEmail ? <Text style={estilos.erro}>{erroEmail}</Text> : null}
