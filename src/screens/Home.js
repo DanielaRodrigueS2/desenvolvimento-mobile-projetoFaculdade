@@ -23,9 +23,9 @@ const Home = (props) => {
         props.navigation.navigate('Nova Pesquisa')
     }
 
-    const goToAcoesPesquisa = (pesquisaId, nome, data, img, coleta) => {
-        const pesquisa = { pesquisaId, nome, data, imagem: img, coleta: coleta };
-        console.log("Dados sendo enviados ao Redux:", pesquisa); // Teste
+    const goToAcoesPesquisa = (pesquisaId, nome, data, imagem, coleta) => {
+        const pesquisa = { pesquisaId, nome, data, imagem: imagem, coleta: coleta };
+        console.log("Dados  enviados ao Redux:", pesquisa); // Teste
         dispatch(reducerSetPesquisa(pesquisa));
         props.navigation.navigate('AcoesPesquisa');
     }
@@ -45,8 +45,8 @@ const Home = (props) => {
 
     const itemPesquisa = ({ item }) => {
         return (
-            <Pesquisa nome={item.nome} data={item.data} img={item.img} 
-            onPress={()=>goToAcoesPesquisa(item.pesquisaId, item.nome, item.data, item.img, item.coleta)}></Pesquisa>
+            <Pesquisa nome={item.nome} data={item.data} img={item.imagem} 
+            onPress={()=>goToAcoesPesquisa(item.pesquisaId, item.nome, item.data, item.imagem, item.coleta)}></Pesquisa>
         )
     }
 
