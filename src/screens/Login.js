@@ -4,7 +4,7 @@ import { View, Text, TextInput, StyleSheet } from 'react-native';
 import TxtBtn from '../components/TxtBtn';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { signInWithEmailAndPassword, getAuth } from 'firebase/auth';
-import { auth_mod } from '../firebase';
+import { auth_mod } from '../firebase/firebase';
 import { reducerSetLogin } from '../redux/loginSlice';
 import { useDispatch } from 'react-redux';
 

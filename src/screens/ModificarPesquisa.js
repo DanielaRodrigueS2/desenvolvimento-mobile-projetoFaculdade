@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons'
 import DateTimePicker from '@react-native-community/datetimepicker'
 import ImageResizer from 'react-native-image-resizer'
 import { initializeFirestore, deleteDoc, updateDoc, doc } from 'firebase/firestore'
-import app from '../firebase'
+import app from '../firebase/firebase'
 import { useSelector } from 'react-redux'
 
 const { width, height } = Dimensions.get('window')

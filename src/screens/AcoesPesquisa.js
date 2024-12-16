@@ -2,11 +2,9 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Icones from "../components/Icones";
 import { useSelector } from "react-redux";
 
-<<<<<<< HEAD
-=======
-//
+//Library Add Check
+//donut large
 
->>>>>>> 109ce6d (buscaHome)
 const AcoesPesquisa = (props) => {
 
     const goToColeta = () => {
@@ -16,11 +14,10 @@ const AcoesPesquisa = (props) => {
       props.navigation.navigate('Modificar Pesquisa')
     }
     const goToRelatorio = () => {
-      props.navigation.navigate('Relatório')
+      props.navigation.navigate('Relatorio')
     }
-    const nomePesq = useSelector((state) => state.pesquisa.nome) 
-    props.navigation.setOptions({ title: nomePesq}) //Coloca o nome da página como o nome da pesquisa
-
+    const nomePesq = useSelector((state) => state.pesquisa.nome)
+    props.navigation.setOptions({ title: nomePesq})
     return(
       <View style={estilos.principal}>     
         <View style = {estilos.inferior}>
@@ -35,6 +32,16 @@ const AcoesPesquisa = (props) => {
 const estilos = StyleSheet.create({
   principal:{
     flex: 1
+  },
+  header:{
+    flexDirection: 'column',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(43, 29, 98, 1)',
+    flex: 0.2,
+  },
+  headerText: {
+    color: 'white',
+    fontSize: 40
   },
   inferior: {
     flex: 1,

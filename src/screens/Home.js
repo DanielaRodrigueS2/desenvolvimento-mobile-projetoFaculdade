@@ -3,7 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, FlatList } from "r
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Pesquisa from "../components/Pesquisa";
 import { initializeFirestore, collection, onSnapshot, doc } from 'firebase/firestore';
-import app from '../firebase';
+import app from '../firebase/firebase';
 import { useSelector, useDispatch } from "react-redux";
 import { reducerSetPesquisa } from "../redux/pesquisaSlice";
 

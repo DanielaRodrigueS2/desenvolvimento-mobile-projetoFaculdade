@@ -1,7 +1,7 @@
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
 import { useState } from 'react';
 import { createUserWithEmailAndPassword } from "firebase/auth/web-extension";
-import { auth_mod } from "../firebase";
+import { auth_mod } from "../firebase/firebase";
 
 const Register = (props) => {
   const [email, setEmail] = useState('');
