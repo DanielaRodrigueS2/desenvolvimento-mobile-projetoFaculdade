@@ -17,6 +17,7 @@ const RecuperacaoSenha = (props) => {
         sendPasswordResetEmail(auth_mod,email)
             .then (() => {
                 console.log("Email de redefinicao enviado com sucesso")
+                props.navigation.pop()
             }) 
             .catch ((error) => {
                 console.log("Falha ao tentar redefinir" + JSON.stringify )

@@ -47,6 +47,7 @@ const Register = (props) => {
         value={email}
         onChangeText={handleEmailChange}
         placeholder="Digite seu e-mail"
+        autoCapitalize="none"
       />
       {erroEmail ? <Text style={estilos.erro}>{erroEmail}</Text> : null}
 
@@ -56,6 +57,7 @@ const Register = (props) => {
         onChangeText={setSenha}
         placeholder="Digite sua senha"
         secureTextEntry
+        autoCapitalize="none"
       />
 
       <TextInput
@@ -64,6 +66,7 @@ const Register = (props) => {
         onChangeText={setConfirmSenha}
         placeholder="Repita sua senha"
         secureTextEntry
+        autoCapitalize="none"
       />
       {erroSenha ? <Text style={estilos.erro}>{erroSenha}</Text> : null}
 

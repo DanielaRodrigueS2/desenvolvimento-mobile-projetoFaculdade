@@ -35,7 +35,7 @@ const Login = (props) => {
     if (user) {
       dispatch(reducerSetLogin({ userId: user.uid, email: email }));
 
-      // Navegar para a tela "Drawer"
+      
       props.navigation.navigate('Drawer');
     }
   };
@@ -68,6 +68,7 @@ const Login = (props) => {
         value={email}
         onChangeText={handleEmailChange}
         placeholder="Digite seu e-mail"
+        autoCapitalize="none"
 
       />
 
@@ -79,6 +80,7 @@ const Login = (props) => {
         onChangeText={setSenha}
         placeholder="Digite sua senha"
         secureTextEntry={true}
+        autoCapitalize="none"
       />
 
       <TxtBtn texto="Entrar" background="#37BD6D" height={40} onPress={autenticarUsuario} />
