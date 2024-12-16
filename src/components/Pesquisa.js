@@ -26,9 +26,8 @@ const estilo = StyleSheet.create({
         marginRight: 20
     },
     img:{
-        width: 130,
-        height: 140,
-        marginBottom: 5
+        width: '75%',
+        height: '55%'
     },
     textoNome:{
         color: '#3F92C5',
