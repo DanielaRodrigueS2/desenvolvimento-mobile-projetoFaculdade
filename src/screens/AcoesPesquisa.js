@@ -2,6 +2,11 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Icones from "../components/Icones";
 import { useSelector } from "react-redux";
 
+<<<<<<< HEAD
+=======
+//
+
+>>>>>>> 109ce6d (buscaHome)
 const AcoesPesquisa = (props) => {
 
     const goToColeta = () => {
